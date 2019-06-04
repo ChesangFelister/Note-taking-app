@@ -35,9 +35,12 @@
             android:id="@+id/etNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:hint="Note"
             android:lines="8"
-            android:gravity="top|left" />
+            android:padding="5dp"
+            android:gravity="top|left"
+            android:background="@drawable/bg_note"/>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
