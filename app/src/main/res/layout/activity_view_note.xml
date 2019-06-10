@@ -19,124 +19,121 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
-
-     <LinearLayout
+    </ScrollView>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/landscape"
+                android:scaleType="fitXY"
+                android:alpha="0.8"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tempor incididunt ut labore"
+                android:textSize="24dp"
+                android:background="@color/transparent"
+                android:textColor="#fff"/>
+        </RelativeLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/heading"
-
-
-            />
-
-        <ImageView
-            android:layout_width="400dp"
-            android:layout_height="250dp"
-            android:src="@drawable/landscape"
-
-
-            />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                 android:text="@string/view_note"
-
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:text="Note taken from"
-                android:textColor="@color/colorAccent" />
-
-
-
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_gps_fixed_purple_700_24dp"
-            android:layout_marginTop="10dp"   />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            />
-
+            android:text="@string/view_note"
+            android:textSize="16dp"
+            android:textColor="#000"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Longitude 45.7838524"
-            android:layout_marginLeft="27dp"
-            android:layout_marginTop="-25dp"
-            />
-            <TextView
+            android:text="Note taken from"
+            android:paddingTop="8dp"
+            android:textColor="#000"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Latitude:-1.4"
-                android:layout_marginLeft="27dp"
-                android:layout_marginTop="4dp"/>
+                android:src="@drawable/ic_gps_fixed_purple_700_24dp"
+                android:layout_marginTop="20dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Longitude:45.7890943"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="3dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Latitude:-1.456978"
+                    android:layout_marginLeft="3dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_play_circle_outline_purple_a700_18dp"/>
-     </LinearLayout>
 
-        <android.support.v7.widget.AppCompatSeekBar
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="320dp"
-            android:layout_marginLeft="30dp"
-           />
+            android:layout_height="wrap_content">
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:drawableLeft="@drawable/ic_mode_edit_pink_a700_18dp"
+                android:layout_marginTop="150dp"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+               android:drawableLeft="@drawable/ic_delete_forever_pink_500_36dp"
+                android:layout_marginTop="150dp"/>
+        </LinearLayout>
 
-
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_mode_edit_pink_a700_18dp"
-            android:layout_marginTop="700dp"
-            android:layout_marginLeft="28dp"
-            />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_delete_forever_pink_500_36dp"
-            android:layout_marginTop="700dp"
-            android:layout_marginLeft="230dp"
-            />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Delete"
-        android:layout_marginTop="700dp"
-        android:layout_marginLeft="350dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Edit"
-            android:layout_marginLeft="240dp"
-            android:layout_marginTop="700dp"/>
-
-
-
-
-
-
-
-
+    </LinearLayout>
 
 
 

@@ -20,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(),AddNoteActivity.class));
-            }
-        });
+//
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getBaseContext(),AddNoteActivity.class));
+//            }
+//        });
         TextView tvHello=findViewById(R.id.tvHello);
         tvHello.setText("energy defines");
         final Button btnViewNote =findViewById(R.id.viewNote);
