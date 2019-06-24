@@ -15,6 +15,9 @@ public class Note {
         this.noteText = noteText;
     }
 
+    public Note() {
+    }
+
     public int getId() {
         return id;
     }
