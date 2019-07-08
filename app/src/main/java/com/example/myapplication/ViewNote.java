@@ -35,6 +35,7 @@ public class ViewNote extends AppCompatActivity {
             public void onClick(View v) {
                 DatabaseHelper databasehelper=new DatabaseHelper(getApplicationContext(),"notes",null,1);
                 databasehelper.deleteNote(noteid);
+                finish();
 //                startActivity(getIntent(),);
             }
         });

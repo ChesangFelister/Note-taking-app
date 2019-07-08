@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddNoteActivity">
+    tools:context=".EditNoteActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -45,26 +45,26 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <Button
-            android:drawableLeft="@drawable/ic_add_a_photo_pink_600_24dp"
-            android:id="@+id/btnAddPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Photo"
-            android:textAllCaps="false"
-            />
+            <Button
+                android:drawableLeft="@drawable/ic_add_a_photo_pink_600_24dp"
+                android:id="@+id/btnAddPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Photo"
+                android:textAllCaps="false"
+                />
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"/>
 
-        <Button
-            android:drawableLeft="@drawable/ic_keyboard_voice_pink_500_24dp"
-            android:id="@+id/btnAddVoiceNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AddVoiceNote"
-            android:textAllCaps="false"/>
+            <Button
+                android:drawableLeft="@drawable/ic_keyboard_voice_pink_500_24dp"
+                android:id="@+id/btnAddVoiceNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AddVoiceNote"
+                android:textAllCaps="false"/>
         </LinearLayout>
 
         <Button
@@ -84,8 +84,14 @@
     </LinearLayout>
 
 
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
 </android.support.design.widget.CoordinatorLayout>
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:src="@drawable/ic_add_a_photo_pink_600_24dp"/>-->

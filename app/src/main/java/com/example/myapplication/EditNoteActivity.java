@@ -1,12 +1,8 @@
 package com.example.myapplication;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.speech.tts.Voice;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,14 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.myapplication.Database.DatabaseHelper;
 import com.example.myapplication.Database.Note;
 
-import static android.widget.Toast.makeText;
-
-public class AddNoteActivity extends AppCompatActivity {
+public class EditNoteActivity extends AppCompatActivity {
+    int noteid;
+    Button btnEditnote;
     EditText etTitle;
     EditText etNote;
     Button btnAddPhoto;
@@ -32,18 +27,13 @@ public class AddNoteActivity extends AppCompatActivity {
     String title;
     String noteText;
     ImageView imgView;
-
     private static final int CAPTURE_IMAGE_REQUEST_CODE=500;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_note);
+        setContentView(R.layout.activity_edit_note);
         Toolbar toolbar = findViewById(R.id.toolbar);
-      setSupportActionBar(toolbar);
-
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar);
         etTitle=findViewById(R.id.etTitle);
         etNote=findViewById(R.id.etNote);
         btnAddPhoto=findViewById(R.id.btnAddPhoto);
@@ -64,9 +54,9 @@ public class AddNoteActivity extends AppCompatActivity {
 
                 title=etTitle.getText().toString();
                 noteText=etNote.getText().toString();
-               Note notes=new Note(title,noteText);
-               DatabaseHelper databaseHelper=new DatabaseHelper(getBaseContext(),"notes",null,1);
-               long rows=databaseHelper.addNote(notes);
+                Note notes=new Note(title,noteText);
+                DatabaseHelper databaseHelper=new DatabaseHelper(getBaseContext(),"notes",null,1);
+                long rows=databaseHelper.addNote(notes);
                 Log.d("AddNote","Number of notes is "+rows);
 //                Note note=new Note (title,noteText);
 
@@ -76,19 +66,28 @@ public class AddNoteActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+        btnEditnote=findViewById(R.id.btnEditNote);
+        btnEditnote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseHelper databasehelper=new DatabaseHelper(getApplicationContext(),"notes",null,1);
+                databasehelper.updateNote(noteid);
+                finish();
+//                startActivity(getIntent(),);
+            }
+        });
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==CAPTURE_IMAGE_REQUEST_CODE&&resultCode==RESULT_OK) {
-            Bundle bundle = data.getExtras();
-            Bitmap bitmap = (Bitmap) bundle.get("data");
-            imgView.setImageBitmap(bitmap);
-
-
-        }
-    }
 }
-
-

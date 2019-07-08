@@ -86,4 +86,21 @@ public void deleteNote(int id){
 
 
 
-        }
+
+public void updateNote(int id) {
+
+    SQLiteDatabase sqLiteDatabase=this.getReadableDatabase();
+    ContentValues contentValues = new ContentValues();
+     contentValues.put("id","contentValues");
+    String whereClause = "id=?";
+    String tableName="notes";
+    String[]whereArgs=new String[]{String.valueOf(id)};
+   sqLiteDatabase.update("note", contentValues, whereClause, whereArgs);
+
+//
+//   return sqLiteDatabase.update("note", contentValues, "id" + " = ?",
+//           new String[]{String.valueOf(getNotes())}));
+//
+
+}
+}
