@@ -13,16 +13,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.myapplication.Database.DatabaseHelper;
 import com.example.myapplication.Database.Note;
 
+import java.util.Map;
+
 public class EditNoteActivity extends AppCompatActivity {
-    int noteId;
-    EditText etTitle;
-    EditText etNote;
-    Button btnEditNote;
-    String title;
-    String noteText;
+  private   int noteId;
+  private   EditText etTitle;
+  private   EditText etNote;
+  private   Button btnEditNote;
+  private   String title;
+  private   String noteText;
+  private   String NOTE_API_URL="https://akirachixnotesapi.herokuapp.com/api/v1/notes";
+  private String TAG="NOTES_API_RESPONSE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,5 +91,23 @@ public class EditNoteActivity extends AppCompatActivity {
         etTitle.setText(note.getTitle());
         etNote.setText(note.getNoteText());
     }
+private  void  PostNote(String title,String noteText){
+    StringRequest stringRequest=new StringRequest(Request.Method.POST, NOTE_API_URL, new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
 
+        }
+    }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+
+        }
+    }){
+        @Override
+        protected Map<String, String> getParams() throws AuthFailureError {
+            return super.getParams();
+        }
+    };
+
+}
 }
