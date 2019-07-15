@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.myapplication.Database.DatabaseHelper;
 import com.example.myapplication.Database.Note;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class EditNoteActivity extends AppCompatActivity {
@@ -95,17 +96,21 @@ private  void  PostNote(String title,String noteText){
     StringRequest stringRequest=new StringRequest(Request.Method.POST, NOTE_API_URL, new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
+            Log.d(TAG,response);
 
         }
     }, new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-
+Log.e(TAG,error.getMessage());
         }
     }){
         @Override
         protected Map<String, String> getParams() throws AuthFailureError {
-            return super.getParams();
+           Map<String,String>params=new HashMap<String, String>();
+           params.put("title","title");
+            params.put("noteText","noteText");
+            return  params;
         }
     };
 
