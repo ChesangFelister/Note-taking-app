@@ -8,14 +8,14 @@
         android:id="@+id/tvtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Hello  LisaLab"
+
 
        />
     <TextView
         android:id="@+id/tvNoteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Hi edith"
+
 
         />
 

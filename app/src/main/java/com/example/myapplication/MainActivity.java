@@ -63,20 +63,6 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }
-//    private void updateNote(String note, int position) {
-//        Note n =  noteList.get(position);
-//        // updating note text
-//        n.setNote(note);
-//
-//        // updating note in db
-//        db.updateNote(n);
-//
-//        // refreshing the list
-//        noteList.set(position, n);
-//        mAdapter.notifyItemChanged(position);
-//
-//
-//    }
         public void displaynames(){
         List<String>namesList=new ArrayList<>();
         namesList.add("Anyango Cynthia");

@@ -41,39 +41,14 @@
             android:padding="5dp"
             android:gravity="top|left"
             android:background="@drawable/bg_note"/>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:drawableLeft="@drawable/ic_add_a_photo_pink_600_24dp"
-                android:id="@+id/btnAddPhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add Photo"
-                android:textAllCaps="false"
-                />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
-            <Button
-                android:drawableLeft="@drawable/ic_keyboard_voice_pink_500_24dp"
-                android:id="@+id/btnAddVoiceNote"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="AddVoiceNote"
-                android:textAllCaps="false"/>
-        </LinearLayout>
 
         <Button
-            android:id="@+id/btnSave"
+            android:id="@+id/btnEditNote"
             android:background="@drawable/bg_button_pink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Save"
+            android:text="Edit"
             />
         <ImageView
             android:id="@+id/imgView"

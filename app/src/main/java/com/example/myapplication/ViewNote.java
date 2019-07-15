@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +19,7 @@ public class ViewNote extends AppCompatActivity {
    TextView tvtitle;
    TextView tvNoteText;
     Button btndelete;
+    Button btnEditnote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +41,22 @@ public class ViewNote extends AppCompatActivity {
 //                startActivity(getIntent(),);
             }
         });
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
+        btnEditnote=findViewById(R.id.btnEditNote);
+        btnEditnote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getBaseContext(),EditNoteActivity.class);
+                intent.putExtra("Note_Id",noteid);
+                startActivity(intent);
+
+
+            }
+        });
+
+
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getNoteId();
     }

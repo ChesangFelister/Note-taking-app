@@ -17,38 +17,29 @@ import com.example.myapplication.Database.DatabaseHelper;
 import com.example.myapplication.Database.Note;
 
 public class EditNoteActivity extends AppCompatActivity {
-    int noteid;
-    Button btnEditnote;
+    int noteId;
     EditText etTitle;
     EditText etNote;
-    Button btnAddPhoto;
-    Button btnAddVoiceNote;
-    Button btnSave;
+    Button btnEditNote;
     String title;
     String noteText;
-    ImageView imgView;
-    private static final int CAPTURE_IMAGE_REQUEST_CODE=500;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getNoteId();
         etTitle=findViewById(R.id.etTitle);
         etNote=findViewById(R.id.etNote);
-        btnAddPhoto=findViewById(R.id.btnAddPhoto);
-        btnAddVoiceNote=findViewById(R.id.btnAddVoiceNote);
-        btnSave=findViewById(R.id.btnSave);
-        imgView =findViewById(R.id.imgView);
-        btnAddPhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,CAPTURE_IMAGE_REQUEST_CODE);
-            }
-        });
+        displayNote();
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
+
+        btnEditNote=findViewById(R.id.btnEditNote);
+
+
+        btnEditNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -58,27 +49,16 @@ public class EditNoteActivity extends AppCompatActivity {
                 DatabaseHelper databaseHelper=new DatabaseHelper(getBaseContext(),"notes",null,1);
                 long rows=databaseHelper.addNote(notes);
                 Log.d("AddNote","Number of notes is "+rows);
-//                Note note=new Note (title,noteText);
-
-//                Toast.makeText(getApplicationContext(),"you have clicked a save button",Toast.LENGTH_LONG).show();
-
-
-            }
-        });
-
-
-
-
-        btnEditnote=findViewById(R.id.btnEditNote);
-        btnEditnote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseHelper databasehelper=new DatabaseHelper(getApplicationContext(),"notes",null,1);
-                databasehelper.updateNote(noteid);
+                Note note=new Note (noteId,title,noteText);
                 finish();
-//                startActivity(getIntent(),);
+
+
+
             }
         });
+
+
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +68,19 @@ public class EditNoteActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    public void getNoteId(){
+        Bundle bundle=getIntent().getExtras();
+        if (bundle!=null){
+            noteId=bundle.getInt("Note_Id",0);
+        }
+    }
+    public  void displayNote(){
+        DatabaseHelper databaseHelper=new DatabaseHelper(getApplicationContext(),"notes",null,1);
+        Note note=databaseHelper.getNoteById(noteId);
+        etTitle.setText(note.getTitle());
+        etNote.setText(note.getNoteText());
     }
 
 }
